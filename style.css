@@ -1,0 +1,58 @@
+/* *
+.asim {
+    font-size:30px;
+    color: blue;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'poppins';
+}
+
+.asim-brown
+{
+    font-size: 18px;
+    color: brown;
+    font-weight: bold;
+    font-family: 'poppins';
+
+}
+
+body{
+    background-color: rgb(240, 178, 178);
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'poppins';
+    font-weight: 900;
+}
+
+*/
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.box {
+    font-family: "Oswald", sans-serif;
+    width: auto;
+    height: auto;
+    background-color: rgb(235, 235, 235);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 25px;
+
+}
+
+.maintext {
+margin-top: 10px;
+}
+
+.name {
+    margin-top: 20px;
+    font-size: 20px;
+    }
+
+.
