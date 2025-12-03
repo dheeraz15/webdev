@@ -1,45 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("formSection");
-  const card = document.getElementById("idCard");
+  const formSection = document.getElementById("formSection");
+  const cardResult = document.getElementById("cardResult");
+  const template = document.getElementById("cardTemplate").content;
 
-  const nameIn = document.getElementById("name");
-  const idIn = document.getElementById("idNum");
-  const courseIn = document.getElementById("course");
-  const photoIn = document.getElementById("photo");
-
-  const showName = document.getElementById("showName");
-  const showId = document.getElementById("showId");
-  const showCourse = document.getElementById("showCourse");
-  const cardPhoto = document.getElementById("cardPhoto");
+  const fullNameInput = document.getElementById("fullName");
+  const facultyInput = document.getElementById("faculty");
+  const photoInput = document.getElementById("photo");
 
   let photoURL = "";
 
-  // Photo preview
-  photoIn.addEventListener("change", (e) => {
+  photoInput.addEventListener("change", (e) => {
     const file = e.target.files[0];
-    if (file) {
-      photoURL = URL.createObjectURL(file);
-      cardPhoto.src = photoURL;
-    }
+    if (file) photoURL = URL.createObjectURL(file);
   });
 
-  // Generate card
   document.getElementById("generateBtn").addEventListener("click", () => {
-    const name = nameIn.value.trim();
-    const id = idIn.value.trim();
-    const course = courseIn.value.trim();
+    const name = fullNameInput.value.trim();
+    const faculty = facultyInput.value.trim();
 
-    if (!name || !id || !course || !photoURL) {
-      alert("Please fill all fields and upload a photo");
+    if (!name || !faculty || !photoURL) {
+      alert("Please fill all fields and upload a photo!");
       return;
     }
 
-    showName.textContent = name;
-    showId.textContent = id;
-    showCourse.textContent = course;
-    cardPhoto.src = photoURL;
+    const card = template.cloneNode(true);
+    card.querySelector(".dynamic-name").textContent = name;
+    card.querySelector(".dynamic-faculty").textContent = faculty;
+    card.querySelector(".dynamic-photo").src = photoURL;
 
-    form.classList.add("hidden");
-    card.classList.remove("hidden");
+    cardResult.innerHTML = "";
+    cardResult.appendChild(card);
+
+    formSection.classList.add("hidden");
+    cardResult.classList.remove("hidden");
   });
 });

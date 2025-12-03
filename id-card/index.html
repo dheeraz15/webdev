@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ID Card Generator</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
   <div class="container">
-
-    <!-- Form -->
     <div id="formSection">
-      <h2>Student Information</h2>
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="text" id="idNum" placeholder="Student ID" required>
-      <input type="text" id="course" placeholder="Course / Department" required>
+      <h2>Generate Your ID Card</h2>
+      <input type="text" id="fullName" placeholder="Full Name" required>
+      <input type="text" id="faculty" placeholder="Faculty / Department" required>
       <input type="file" id="photo" accept="image/*" required>
-      <button id="generateBtn">Generate ID Card</button>
+      <button id="generateBtn">Generate Card</button>
     </div>
+    <div id="cardResult" class="hidden"></div>
+  </div>
 
-    <!-- ID Card -->
-    <div id="idCard" class="hidden">
-      <div class="card">
-        <img id="cardPhoto" src="" alt="Photo">
-        <div class="details">
-          <h3>Student ID Card</h3>
-          <p><strong>Name:</strong> <span id="showName"></span></p>
-          <p><strong>ID No:</strong> <span id="showId"></span></p>
-          <p><strong>Course:</strong> <span id="showCourse"></span></p>
+  <template id="cardTemplate">
+    <div class="profile-card">
+      <div class="left-section">
+        <div class="profile-info">
+          <h1 class="name">Name: <span class="dynamic-name">Dhiraj Chapagain</span></h1>
+          <h2 class="faculty">Faculty: <span class="dynamic-faculty">Marketing</span></h2>
+        </div>
+
+        <div class="social-icons">
+          <div class="icon facebook"><i class="fab fa-facebook-f"></i></div>
+          <div class="icon linkedin"><i class="fab fa-linkedin-in"></i></div>
+          <div class="icon instagram"><i class="fab fa-instagram"></i></div>
         </div>
       </div>
-    </div>
 
-  </div>
+      <div class="right-section">
+        <img src="https://pbs.twimg.com/profile_images/1722285108101791744/LvwvUasg_400x400.jpg" alt="Photo"
+          class="graduation-image dynamic-photo">
+      </div>
+    </div>
+  </template>
+
   <script src="script.js"></script>
 </body>
 </html>
